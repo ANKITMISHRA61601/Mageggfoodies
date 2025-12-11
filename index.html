@@ -334,8 +334,8 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
         }
 
         .menu-item {
@@ -345,54 +345,63 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            padding: 30px 20px;
+            text-align: center;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .menu-item:hover {
             transform: translateY(-10px);
-        }
-
-        .menu-item-img {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .menu-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .menu-item:hover .menu-item-img img {
-            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .menu-item-content {
-            padding: 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .menu-item-title {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 20px 15px 15px;
-            z-index: 2;
+            width: 100%;
         }
 
         .menu-item-title h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0;
-            color: var(--white);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .menu-item-title h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .menu-item-desc {
-            display: none; /* Hide the description */
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .menu-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .menu-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
         }
 
         /* Services Section */
@@ -723,6 +732,10 @@
             .contact-content {
                 flex-direction: column;
             }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
         }
 
         @media screen and (max-width: 768px) {
@@ -771,6 +784,11 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
         }
 
         @media screen and (max-width: 576px) {
@@ -780,6 +798,20 @@
 
             .section {
                 padding: 60px 0;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            
+            .menu-item {
+                padding: 20px 15px;
+                min-height: 160px;
+            }
+            
+            .menu-item-title h3 {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -880,42 +912,54 @@
                 </div>
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Boiled Egg.jpg" alt="Boiled Egg">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Boiled Egg</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Boiled Egg</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Perfectly boiled eggs served with a pinch of salt
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Fried Egg.jpg" alt="Fried Egg">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Fried Egg</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Fried Egg</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Sunny-side up or well-done, cooked to perfection
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Egg Bhurji.jpg" alt="Egg Bhurji">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Egg Bhurji</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-utensil-spoon"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Egg Bhurji</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Indian style scrambled eggs with spices and onions
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Masala Boiled Egg.jpg" alt="Masala Boiled Egg">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Masala Boiled Egg</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-pepper-hot"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Masala Boiled Egg</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Boiled eggs tossed in special Indian spices
                             </div>
                         </div>
                     </div>
@@ -929,64 +973,82 @@
                 </div>
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Plain Omelette.jpg" alt="Plain Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Plain Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Plain Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Simple and fluffy egg omelette
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Butter Omelette.jpg" alt="Butter Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Butter Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-butter"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Butter Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Rich omelette cooked in pure butter
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Cheese Omelette.jpg" alt="Cheese Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Cheese Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Cheese Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Stuffed with melted cheese for extra flavor
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Burger Omelette.jpg" alt="Burger Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Burger Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-hamburger"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Burger Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Omelette patty perfect for burger buns
                             </div>
                         </div>
                     </div>
                     <!-- Pizza Omelette -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/pizza-omelette.jpg" alt="Pizza Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Pizza Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-pizza-slice"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Pizza Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Omelette with pizza toppings and cheese
                             </div>
                         </div>
                     </div>
                     <!-- Sandwich Omelette -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/sandwich-omelette.jpg" alt="Sandwich Omelette">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Sandwich Omelette</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Sandwich Omelette</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Perfect omelette filling for sandwiches
                             </div>
                         </div>
                     </div>
@@ -1000,42 +1062,54 @@
                 </div>
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Spring rolls.jpg" alt="Veg Roll">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Veg Roll</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Veg Roll</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Fresh vegetables wrapped in paratha
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Hariyali Chicken Curry Recipe.jpg" alt="Single Egg Roll">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Single Egg Roll</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Single Egg Roll</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                One egg wrap with veggies and sauces
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Crispy Homemade Egg Rolls_ Better Than Takeout in___.jpg" alt="Double Egg Roll">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Double Egg Roll</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Double Egg Roll</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Double egg wrap for extra protein
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Sausage Egg and Cheese Breakfast Roll Ups_ Your New Favorite Morning Treat!.jpg" alt="Paneer Roll">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Paneer Roll</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Paneer Roll</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Cottage cheese wrap with Indian spices
                             </div>
                         </div>
                     </div>
@@ -1049,103 +1123,116 @@
                 </div>
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/plane maggie.jpg" alt="Plain Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Plain Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Plain Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Classic maggie noodles with basic seasoning
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Butter Maggie.jpg" alt="Butter Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Butter Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-butter"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Butter Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Maggie cooked with rich butter
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Masala Maggie.jpg" alt="Masala Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Masala Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-pepper-hot"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Masala Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Spicy maggie with special masala
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/veg maggie.jpg" alt="Veg Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Veg Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Veg Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Maggie loaded with fresh vegetables
                             </div>
                         </div>
                     </div>
                     <!-- Paneer Maggie -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/paneer-maggie.jpg" alt="Paneer Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Paneer Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Paneer Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Maggie with chunks of cottage cheese
                             </div>
                         </div>
                     </div>
                     <!-- Cheese Maggie -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/cheese-maggie.jpg" alt="Cheese Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Cheese Maggie</h3>
-                                </div>
-                            </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-cheese"></i>
                         </div>
-                    </div>
-                    <!-- Butter Maggie -->
-                    <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/butter-maggie.jpg" alt="Butter Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Butter Maggie</h3>
-                                </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Cheese Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Maggie topped with melted cheese
                             </div>
                         </div>
                     </div>
                     <!-- Vegetable Maggie -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Vegetable Maggie.jpg" alt="Vegetable Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Vegetable Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Vegetable Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Mixed vegetable maggie
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Egg Maggie.jpg" alt="Egg Maggie">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Egg Maggie</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Egg Maggie</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Maggie with scrambled eggs
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- NEW: Noodles Category -->
+            <!-- Noodles Category -->
             <div class="menu-category">
                 <div class="category-title">
                     <h3>Noodles</h3>
@@ -1153,30 +1240,36 @@
                 <div class="menu-grid">
                     <!-- Veg Noodles -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Veg noodles.jpg" alt="Veg Noodles">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Veg Noodles</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Veg Noodles</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Stir-fried noodles with fresh vegetables
                             </div>
                         </div>
                     </div>
                     <!-- Paneer Noodles -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Paneer noodles.jpg" alt="Paneer Noodles">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Paneer Noodles</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Paneer Noodles</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Noodles with paneer and vegetables
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- NEW: Snacks & More Category -->
+            <!-- Snacks & More Category -->
             <div class="menu-category">
                 <div class="category-title">
                     <h3>Snacks & More</h3>
@@ -1184,74 +1277,92 @@
                 <div class="menu-grid">
                     <!-- Momo -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Momo.jpg" alt="Momo">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Momo</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-dumpling"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Momo</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Steamed or fried dumplings with filling
                             </div>
                         </div>
                     </div>
                     <!-- Veg Sandwich -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Veg sandwich.jpg" alt="Veg Sandwich">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Veg Sandwich</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Veg Sandwich</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Fresh vegetable sandwich
                             </div>
                         </div>
                     </div>
                     <!-- Grill Sandwich -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Grill sandwich.jpg" alt="Grill Sandwich">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Grill Sandwich</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Grill Sandwich</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Toasted sandwich with various fillings
                             </div>
                         </div>
                     </div>
                     <!-- Veg Burger -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Veg Burger.jpg" alt="Veg Burger">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Veg Burger</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-hamburger"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Veg Burger</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Vegetable patty burger with sauces
                             </div>
                         </div>
                     </div>
                     <!-- Pizza -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Pizza.jpg" alt="Pizza">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Pizza</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-pizza-slice"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Pizza</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Freshly baked pizza with toppings
                             </div>
                         </div>
                     </div>
                     <!-- Vegetable Poha -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Vegetable Poha.jpg" alt="Vegetable Poha">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Vegetable Poha</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-bowl-food"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Vegetable Poha</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Flattened rice with vegetables and spices
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- NEW: Beverages Category -->
+            <!-- Beverages Category -->
             <div class="menu-category">
                 <div class="category-title">
                     <h3>Beverages</h3>
@@ -1259,12 +1370,15 @@
                 <div class="menu-grid">
                     <!-- Kulhad Chai -->
                     <div class="menu-item">
-                        <div class="menu-item-img">
-                            <img src="img/Kulhad chai.jpg" alt="Kulhad Chai">
-                            <div class="menu-item-content">
-                                <div class="menu-item-title">
-                                    <h3>Kulhad Chai</h3>
-                                </div>
+                        <div class="menu-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">
+                                <h3>Kulhad Chai</h3>
+                            </div>
+                            <div class="menu-item-desc">
+                                Traditional Indian tea served in clay cup
                             </div>
                         </div>
                     </div>
@@ -1409,10 +1523,9 @@
                     <div class="footer-logo">Maggie <span>Foodies</span></div>
                     <p>We are passionate about creating exceptional culinary experiences that bring people together and create lasting memories.</p>
                     <div class="social-links">
+                        <a href="https://whatsapp.com/channel/0029Vb6VDKt7dmeRXKkzcz2z" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/magegg_foodies?igsh=eGl5OXNwdWN1ZmJj" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -1655,5 +1768,3 @@
     </script>
 </body>
 </html>
-
-
