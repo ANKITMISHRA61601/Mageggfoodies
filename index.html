@@ -1245,8 +1245,7 @@
 
 </style>
 
-  <!-- Menu Section -->
-  <section class="section menu" id="menu">
+ <section class="section menu" id="menu">
     <div class="container">
       <div class="section-title">
         <h2>Our Menu</h2>
@@ -1254,49 +1253,123 @@
       </div>
       
       <!-- Egg Dishes Category -->
-      <div class="menu-category">
-        <div class="category-title">
-          <h3>Egg Dishes</h3>
-        </div>
+     <div class="menu-category">
+  <div class="category-title">
+    <h3>Egg Dishes</h3>
+  </div>
 
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Boiled Egg.jpg" alt="Boiled Egg">
-              <div class="menu-item-title">
-                <h3>Boiled Egg</h3>
-              </div>
-            </div>
-          </div>
+  <div class="menu-grid">
 
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Fried Egg.jpg" alt="Fried Egg">
-              <div class="menu-item-title">
-                <h3>Fried Egg</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Egg Bhurji.jpg" alt="Egg Bhurji">
-              <div class="menu-item-title">
-                <h3>Egg Bhurji</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Masala Boiled Egg.jpg" alt="Masala Boiled Egg">
-              <div class="menu-item-title">
-                <h3>Masala Boiled Egg</h3>
-              </div>
-            </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Boiled Egg.jpg" alt="Boiled Egg">
+        <div class="menu-item-title">
+          <h3>Boiled Egg</h3>
         </div>
       </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Fried Egg.jpg" alt="Fried Egg">
+        <div class="menu-item-title">
+          <h3>Fried Egg</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Egg Bhurji.jpg" alt="Egg Bhurji">
+        <div class="menu-item-title">
+          <h3>Egg Bhurji</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Masala Boiled Egg.jpg" alt="Masala Boiled Egg">
+        <div class="menu-item-title">
+          <h3>Masala Boiled Egg</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+  /* CATEGORY TITLE */
+.category-title h3 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #ff6b00;
+}
+
+/* GRID */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.menu-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGE CARD */
+.menu-item-img {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+/* IMAGE */
+.menu-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* HOVER ZOOM */
+.menu-item-img:hover img {
+  transform: scale(1.15);
+}
+
+/* TITLE OVERLAY */
+.menu-item-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+/* TITLE TEXT */
+.menu-item-title h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* OPTIONAL: SLIGHT LIFT */
+.menu-item-img:hover {
+  transform: translateY(-6px);
+  transition: 0.3s ease;
+}
+
+</style>
       
       <!-- Omelette Category -->
       <div class="menu-category">
@@ -1437,80 +1510,84 @@
         </div>
       </div>
 
+
+
       <!-- Snacks & More Category -->
-      <div class="menu-category">
-        <div class="category-title">
-          <h3>Snacks & More</h3>
-        </div>
+   <div class="menu-category">
+  <div class="category-title">
+    <h3>Snacks & More</h3>
+  </div>
 
-        <!-- ONE grid only -->
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Veg noodles.jpg" alt="Veg Noodles">
-              <div class="menu-item-title">
-                <h3>Veg Noodles</h3>
-              </div>
-            </div>
-          </div>
+  <!-- ONE grid only -->
+  <div class="menu-grid">
 
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Paneer noodles.jpg" alt="Paneer Noodles">
-              <div class="menu-item-title">
-                <h3>Paneer Noodles</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Momo.jpg" alt="Momo">
-              <div class="menu-item-title">
-                <h3>Momo</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Veg sandwich.jpg" alt="Veg Sandwich">
-              <div class="menu-item-title">
-                <h3>Veg Sandwich</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Grill sandwich.jpg" alt="Grill Sandwich">
-              <div class="menu-item-title">
-                <h3>Grill Sandwich</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Veg Burger.jpg" alt="Veg Burger">
-              <div class="menu-item-title">
-                <h3>Veg Burger</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="img/Kulhad chai.jpg">
-              <div class="menu-item-title">
-                <h3>Kulhad Chai</h3>
-              </div>
-            </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Veg noodles.jpg" alt="Veg Noodles">
+        <div class="menu-item-title">
+          <h3>Veg Noodles</h3>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Paneer noodles.jpg" alt="Paneer Noodles">
+        <div class="menu-item-title">
+          <h3>Paneer Noodles</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Momo.jpg" alt="Momo">
+        <div class="menu-item-title">
+          <h3>Momo</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Veg sandwich.jpg" alt="Veg Sandwich">
+        <div class="menu-item-title">
+          <h3>Veg Sandwich</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Grill sandwich.jpg" alt="Grill Sandwich">
+        <div class="menu-item-title">
+          <h3>Grill Sandwich</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Veg Burger.jpg" alt="Veg Burger">
+        <div class="menu-item-title">
+          <h3>Veg Burger</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-img">
+        <img src="img/Kulhad chai.jpg">
+        <div class="menu-item-title">
+          <h3>Kulhad Chai</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+            </section>
 
   <!-- Services Section -->
   <section class="section services" id="services">
@@ -1545,6 +1622,99 @@
     </div>
   </section>
 
+  <style>
+    /* Container for the whole section */
+.section.services {
+  padding: 60px 20px;
+  background-color: #fff; /* optional */
+  text-align: center;
+}
+
+/* Section title */
+.section.services .section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #333;
+}
+
+.section.services .section-title p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid container */
+.services-grid {
+  display: flex;
+  justify-content: center; /* centers cards horizontally */
+  gap: 30px; /* space between cards */
+  flex-wrap: wrap; /* wrap on small screens */
+}
+
+/* Individual service card */
+.service-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 280px; /* fixed width for consistency */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card hover effect */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Icon styling */
+.service-icon {
+  font-size: 48px;
+  color: #ff6b00; /* your brand orange */
+  margin-bottom: 20px;
+}
+
+/* Card title */
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* Card description */
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .services-grid {
+    gap: 20px;
+  }
+  .service-card {
+    width: 45%; /* two cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .service-card {
+    width: 100%; /* single card per row */
+  }
+}
+
+  </style>
 <section class="section testimonials" id="testimonials">
   <div class="container">
     <div class="section-title">
@@ -1982,3 +2152,4 @@ setInterval(() => {
   </script>
 </body>
 </html>
+
