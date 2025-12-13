@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maggie Foodies - Delicious Food Experiences</title>
-  <link rel="icon" href="img/4.png" type="image/png">
+  <title>Magegg Foodies - Delicious Food Experiences</title>
+  <link rel="icon" type="image/png" href="img/am.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -117,6 +117,115 @@
       color: var(--gray);
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    /* Delivery Buttons */
+    .delivery-buttons {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      animation: floatButtons 6s ease-in-out infinite;
+    }
+
+    .delivery-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+   .delivery-btn:hover {
+  transform: scale(6.15);
+  animation: none;
+}
+    
+.delivery-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.6s ease;
+}
+
+
+   .delivery-btn:hover::before {
+  transform: translateX(200%) skewX(-15deg);
+}
+
+.swiggy-btn {
+  background: linear-gradient(135deg, #FC8019, #FF6B00);
+}
+
+.zomato-btn {
+  background: linear-gradient(135deg, #E23744, #CB202D);
+}
+
+    .delivery-text {
+      position: absolute;
+      right: 80px;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
+
+    .delivery-btn:hover .delivery-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .swiggy-text {
+      color: #FF6B00;
+    }
+
+    .zomato-text {
+      color: #CB202D;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    @keyframes floatButtons {
+      0%, 100% {
+        transform: translateY(-50%);
+      }
+      50% {
+        transform: translateY(-45%);
+      }
     }
 
     /* Header */
@@ -703,6 +812,21 @@
       .contact-content {
         flex-direction: column;
       }
+      
+      .delivery-buttons {
+        right: 15px;
+      }
+      
+      .delivery-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+      
+      .delivery-text {
+        right: 70px;
+        font-size: 13px;
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -756,6 +880,20 @@
       .menu-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
+      
+      .delivery-buttons {
+        right: 10px;
+      }
+      
+      .delivery-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+      
+      .delivery-text {
+        display: none;
+      }
     }
 
     @media screen and (max-width: 576px) {
@@ -775,69 +913,337 @@
       .logo-text {
         font-size: 1.5rem;
       }
+      
+      .delivery-buttons {
+        right: 8px;
+        gap: 10px;
+      }
+      
+      .delivery-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Delivery Buttons (Swiggy & Zomato) -->
+  <div class="delivery-buttons">
+    <a href="https://www.swiggy.com/" target="_blank" class="delivery-btn swiggy-btn">
+      <i class="fas fa-bolt"></i>
+      <span class="delivery-text swiggy-text">Order on Swiggy</span>
+    </a>
+    <a href="https://www.zomato.com/" target="_blank" class="delivery-btn zomato-btn">
+      <i class="fas fa-utensils"></i>
+      <span class="delivery-text zomato-text">Order on Zomato</span>
+    </a>
+  </div>
+
   <!-- Header -->
-  <header>
-    <div class="container">
-      <nav class="navbar">
-        <a href="#home" class="logo">
-          <div class="logo-circle">
-            <img src="img/4.png" alt="Maggie Foodies Logo">
-          </div>
-          <div class="logo-text">Maggie <span>Foodies</span></div>
-        </a>
-        <ul class="nav-menu">
-          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-          <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <header class="header">
+  <div class="container header-container">
+
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <div class="logo-circle">
+        <img src="img\4 (2).png" alt="Magegg Foodies Logo">
+      </div>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+        <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger -->
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<style>
+  /* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ff8c00;
+  z-index: 999;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+
+.logo-circle {
+  width: 110px;
+  height: 110px;
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* VERY IMPORTANT */
+}
+
+/* NAVBAR */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #f5f1f1;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #d28751;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-120%);
+    transition: 0.4s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+  }
+
+  .nav-item {
+    padding: 15px 0;
+  }
+}
+
+</style>
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Delicious Food Experiences</h1>
-        <p>At Maggie Foodies, we create memorable culinary journeys with our passion for exceptional flavors and warm hospitality.</p>
-        <a href="#menu" class="btn">Explore Our Menu</a>
-      </div>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Delicious Food Experiences</h1>
+      <p>At Magegg Foodies, we create memorable culinary journeys with our passion for exceptional flavors and warm hospitality.</p>
+      
+      <!-- Existing button -->
+      <a href="img/menu.pdf" class="btn" target="_blank">
+        Explore Our Menu
+      </a>
+ <br>
+      <!-- New button: Order on Zomato -->
+     <!-- Zomato Button -->
+<a href="https://www.zomato.com/" class="btn zomato-btn" target="_blank">
+  Order on Zomato
+</a>
+
+<!-- Swiggy Button -->
+<a href="https://www.swiggy.com/" class="btn swiggy-btn" target="_blank">
+  Order on Swiggy
+</a>
+<style>
+  /* Common button styles */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 15px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Zomato button color */
+.zomato-btn {
+  background-color: #CB202D;
+}
+
+/* Swiggy button color */
+.swiggy-btn {
+  background-color: hsl(27, 100%, 50%);
+}
+
+</style>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- About Section -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Story</h2>
-        <p>Learn about the passion and hard work behind Maggie Foodies.</p>
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Story</h2>
+      <p>Learn about the passion and hard work behind Magegg Foodies.</p>
+    </div>
+
+    <div class="about-content">
+      <!-- LEFT CONTENT -->
+      <div class="about-text">
+        <h3>Making Tasty Food Since 2025</h3>
+        <p>
+          Magegg Foodies started as a small family restaurant with a big dream:
+          to share our love for good food with our community.
+        </p>
+        <p>
+          Our cooking philosophy blends traditional recipes with modern ideas,
+          using fresh ingredients and lots of love.
+        </p>
+        <p>
+          Whether it’s a quick meal or a special occasion, we make every dish
+          with care and passion.
+        </p>
       </div>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Making Tasty Food Since 2025</h3>
-          <p>Maggie Foodies started as a small family restaurant with a big dream: to share our love for good food with our community. What began as a simple kitchen has grown into a favorite place for food lovers.</p>
-          <p>Our way of cooking is simple: use fresh ingredients, follow traditional recipes while trying new ideas, and treat every customer like family. Our cooks use old cooking methods with new ideas to make dishes that taste great.</p>
-          <p>Whether you're eating with us for a simple meal or a special event, we try to make your visit one to remember. From our kitchen to your table, we put our heart into every dish we make.</p>
-          <a href="#contact" class="btn">Visit Us</a>
-        </div>
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant Interior">
-        </div>
+
+      <!-- RIGHT VIDEO -->
+      <div class="about-image">
+        <video autoplay muted loop playsinline class="about-video">
+          <source src="img/egg.mp4" type="video/mp4">
+          
+        </video>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+ /* Layout */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Left text */
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Right video */
+.about-image {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Video styling */
+.about-video {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .about-video {
+    height: 320px;
+  }
+}
+
+/* Mobile view (width increase) */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-image {
+    width: 120%;  /* increase video width beyond container */
+ 
+    max-width: 100%;
+  }
+
+  .about-video {
+    width: 100%;
+    height: 280px; /* adjust height if needed */
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .about-image {
+    width: 130%;
+   
+  }
+  .about-video {
+    height: 230px;
+  }
+}
+
+
+</style>
 
   <!-- Menu Section -->
   <section class="section menu" id="menu">
@@ -852,34 +1258,38 @@
         <div class="category-title">
           <h3>Egg Dishes</h3>
         </div>
+
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1606914465505-2f1b4bfb5e20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Boiled Egg">
+              <img src="img/Boiled Egg.jpg" alt="Boiled Egg">
               <div class="menu-item-title">
                 <h3>Boiled Egg</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Fried Egg">
+              <img src="img/Fried Egg.jpg" alt="Fried Egg">
               <div class="menu-item-title">
                 <h3>Fried Egg</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1600326145359-3a44909d1a39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Scrambled Eggs">
+              <img src="img/Egg Bhurji.jpg" alt="Egg Bhurji">
               <div class="menu-item-title">
                 <h3>Egg Bhurji</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Spiced Eggs">
+              <img src="img/Masala Boiled Egg.jpg" alt="Masala Boiled Egg">
               <div class="menu-item-title">
                 <h3>Masala Boiled Egg</h3>
               </div>
@@ -896,7 +1306,7 @@
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1310&q=80" alt="Plain Omelette">
+              <img src="img\Plain Omelette.jpg" alt="Plain Omelette">
               <div class="menu-item-title">
                 <h3>Plain Omelette</h3>
               </div>
@@ -904,7 +1314,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Butter Omelette">
+              <img src="img\Butter Omelette.jpg" alt="Butter Omelette">
               <div class="menu-item-title">
                 <h3>Butter Omelette</h3>
               </div>
@@ -912,7 +1322,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1349&q=80" alt="Cheese Omelette">
+              <img src="img\Cheese Omelette.jpg" alt="Cheese Omelette">
               <div class="menu-item-title">
                 <h3>Cheese Omelette</h3>
               </div>
@@ -920,7 +1330,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1546069901-d5bfd2cbfb1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80" alt="Burger with Egg">
+              <img src="img\Burger Omelette.jpg" alt="Burger with Egg">
               <div class="menu-item-title">
                 <h3>Burger Omelette</h3>
               </div>
@@ -937,7 +1347,7 @@
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="Veg Roll">
+              <img src="img\Spring rolls.jpg" alt="Veg Roll">
               <div class="menu-item-title">
                 <h3>Veg Roll</h3>
               </div>
@@ -945,7 +1355,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80" alt="Egg Roll">
+              <img src="img\Sausage Egg and Cheese Breakfast Roll Ups_ Your New Favorite Morning Treat!.jpg" alt="Egg Roll">
               <div class="menu-item-title">
                 <h3>Single Egg Roll</h3>
               </div>
@@ -953,7 +1363,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Double Egg Roll">
+              <img src="img\double egg roll.jpg" alt="Double Egg Roll">
               <div class="menu-item-title">
                 <h3>Double Egg Roll</h3>
               </div>
@@ -961,7 +1371,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Paneer Roll">
+              <img src="img\paneer roll.jpg" alt="Paneer Roll">
               <div class="menu-item-title">
                 <h3>Paneer Roll</h3>
               </div>
@@ -978,7 +1388,7 @@
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Plain Maggie">
+              <img src="img\plane maggie.jpg" alt="Plain Maggie">
               <div class="menu-item-title">
                 <h3>Plain Maggie</h3>
               </div>
@@ -986,7 +1396,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Butter Maggie">
+              <img src="img\Butter Maggie.jpg" alt="Butter Maggie">
               <div class="menu-item-title">
                 <h3>Butter Maggie</h3>
               </div>
@@ -994,7 +1404,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1555126634-323283c090fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Spicy Maggie">
+              <img src="img\Masala Maggie.jpg" alt="Spicy Maggie">
               <div class="menu-item-title">
                 <h3>Masala Maggie</h3>
               </div>
@@ -1002,7 +1412,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Veg Maggie">
+              <img src="img\veg maggie.jpg" alt="Veg Maggie">
               <div class="menu-item-title">
                 <h3>Veg Maggie</h3>
               </div>
@@ -1010,7 +1420,7 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Paneer Maggie">
+              <img src="img\Paneer maggie.jpg" alt="Paneer Maggie">
               <div class="menu-item-title">
                 <h3>Paneer Maggie</h3>
               </div>
@@ -1018,34 +1428,9 @@
           </div>
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cheese Maggie">
+              <img src="img\Cheese Maggie.jpg" alt="Cheese Maggie">
               <div class="menu-item-title">
                 <h3>Cheese Maggie</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Noodles Category -->
-      <div class="menu-category">
-        <div class="category-title">
-          <h3>Noodles</h3>
-        </div>
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1559314809-2b99056a8c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Veg Noodles">
-              <div class="menu-item-title">
-                <h3>Veg Noodles</h3>
-              </div>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Paneer Noodles">
-              <div class="menu-item-title">
-                <h3>Paneer Noodles</h3>
               </div>
             </div>
           </div>
@@ -1057,51 +1442,66 @@
         <div class="category-title">
           <h3>Snacks & More</h3>
         </div>
+
+        <!-- ONE grid only -->
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Momo">
+              <img src="img/Veg noodles.jpg" alt="Veg Noodles">
+              <div class="menu-item-title">
+                <h3>Veg Noodles</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-img">
+              <img src="img/Paneer noodles.jpg" alt="Paneer Noodles">
+              <div class="menu-item-title">
+                <h3>Paneer Noodles</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-item-img">
+              <img src="img/Momo.jpg" alt="Momo">
               <div class="menu-item-title">
                 <h3>Momo</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Veg Sandwich">
+              <img src="img/Veg sandwich.jpg" alt="Veg Sandwich">
               <div class="menu-item-title">
                 <h3>Veg Sandwich</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80" alt="Grill Sandwich">
+              <img src="img/Grill sandwich.jpg" alt="Grill Sandwich">
               <div class="menu-item-title">
                 <h3>Grill Sandwich</h3>
               </div>
             </div>
           </div>
+
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Veg Burger">
+              <img src="img/Veg Burger.jpg" alt="Veg Burger">
               <div class="menu-item-title">
                 <h3>Veg Burger</h3>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Beverages Category -->
-      <div class="menu-category">
-        <div class="category-title">
-          <h3>Beverages</h3>
-        </div>
-        <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-img">
-              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80" alt="Kulhad Chai">
+              <img src="img/Kulhad chai.jpg">
               <div class="menu-item-title">
                 <h3>Kulhad Chai</h3>
               </div>
@@ -1145,27 +1545,149 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="section testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-title">
-        <h2>What Our Customers Say</h2>
-        <p>Hear from our satisfied customers about their experiences.</p>
-      </div>
-      
-      <div class="carousel-container">
-        <div class="testimonials-carousel" id="carousel">
-          <!-- Testimonial cards will be inserted here by JavaScript -->
-        </div>
-      </div>
-      
-      <div class="carousel-controls">
-        <div class="carousel-indicators" id="indicators">
-          <!-- Indicators will be inserted here by JavaScript -->
-        </div>
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Customers Say</h2>
+      <p>Hear from our satisfied customers in Delhi.</p>
+    </div>
+
+    <div class="carousel-container">
+      <div class="testimonials-carousel" id="carousel">
+        <!-- Cards injected by JS -->
       </div>
     </div>
-  </section>
+
+    <div class="carousel-controls">
+      <div class="carousel-indicators" id="indicators"></div>
+    </div>
+  </div>
+</section>
+<style>
+  .testimonials {
+  background: #fff8e1;
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  max-width: 800px;
+  margin: auto;
+}
+
+.testimonials-carousel {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.testimonial-card {
+  min-width: 100%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.testimonial-card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.testimonial-card h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #222;
+}
+
+.testimonial-card span {
+  font-size: 14px;
+  color: #888;
+}
+
+/* Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-indicators span {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-indicators span.active {
+  background: #e63946;
+}
+
+</style>
+
+<script>
+const testimonials = [
+  { name: "Rahul Sharma", city: "Delhi", text: "Amazing food quality and quick service. Highly recommended!" },
+  { name: "Priya Verma", city: "Delhi", text: "The flavors are authentic and truly delicious. Loved it!" },
+  { name: "Amit Khanna", city: "Delhi", text: "Best food experience I’ve had in a long time." },
+  { name: "Neha Gupta", city: "Delhi", text: "Great taste and excellent presentation. Will order again!" },
+  { name: "Rohit Mehra", city: "Delhi", text: "Food was fresh, hot, and absolutely mouth-watering." },
+  { name: "Anjali Singh", city: "Delhi", text: "Very hygienic and flavorful food. Loved the service!" },
+  { name: "Vikas Malhotra", city: "Delhi", text: "Perfect blend of taste and quality. Highly satisfied!" },
+  { name: "Pooja Arora", city: "Delhi", text: "Loved every bite. Magegg Foodies never disappoints." },
+  { name: "Karan Bansal", city: "Delhi", text: "Superb food with great packaging and timely delivery." },
+  { name: "Sneha Kapoor", city: "Delhi", text: "One of the best food places in Delhi. Truly amazing!" }
+];
+
+const carousel = document.getElementById("carousel");
+const indicators = document.getElementById("indicators");
+let index = 0;
+
+// Create cards & indicators
+testimonials.forEach((item, i) => {
+  carousel.innerHTML += `
+    <div class="testimonial-card">
+      <p>"${item.text}"</p>
+      <h4>${item.name}</h4>
+      <span>${item.city}</span>
+    </div>
+  `;
+
+  indicators.innerHTML += `<span data-index="${i}"></span>`;
+});
+
+const dots = indicators.querySelectorAll("span");
+
+function updateCarousel() {
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    index = dot.dataset.index;
+    updateCarousel();
+  });
+});
+
+updateCarousel();
+
+// Auto slide every 4 seconds
+setInterval(() => {
+  index = (index + 1) % testimonials.length;
+  updateCarousel();
+}, 4000);
+</script>
 
   <!-- Contact Section -->
   <section class="section contact" id="contact">
@@ -1245,13 +1767,12 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-about">
-          <div class="footer-logo">Maggie <span>Foodies</span></div>
+          <div class="footer-logo">Magegg <span>Foodies</span></div>
           <p>We are passionate about creating exceptional culinary experiences that bring people together and create lasting memories.</p>
           <div class="social-links">
+            <a href="https://whatsapp.com/channel/0029Vb6VDKt7dmeRXKkzcz2z" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/magegg_foodies?igsh=eGl5OXNwdWN1ZmJj" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
           </div>
         </div>
         <div class="footer-links">
@@ -1285,13 +1806,32 @@
         </div>
       </div>
       <div class="copyright">
-       <p>&copy; 2025 Maggie Foodies. All Rights Reserved.</p>
-<p>This website is designed and developed by Ankit Mi$hra</p>
+        <p>&copy; 2025 Magegg Foodies. All Rights Reserved.</p>
+        <p>This website is designed and developed by Ankit Mi$hra</p>
       </div>
     </div>
   </footer>
 
   <script>
+    // Delivery buttons visibility on scroll
+    window.addEventListener('scroll', function() {
+      const deliveryButtons = document.querySelector('.delivery-buttons');
+      const scrollPosition = window.scrollY;
+      
+      // Show buttons with slight delay when scrolling
+      if (scrollPosition > 200) {
+        deliveryButtons.style.opacity = '1';
+        deliveryButtons.style.visibility = 'visible';
+      }
+    });
+
+    // Initialize buttons as visible
+    document.addEventListener('DOMContentLoaded', function() {
+      const deliveryButtons = document.querySelector('.delivery-buttons');
+      deliveryButtons.style.opacity = '1';
+      deliveryButtons.style.visibility = 'visible';
+    });
+
     // Testimonial data
     const testimonials = [
       {
