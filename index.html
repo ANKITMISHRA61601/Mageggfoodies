@@ -1245,6 +1245,58 @@
 
 </style>
 
+
+<section class="video-section" id="about-video">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Full Width Video -->
+      <div class="col-12">
+        <div class="video-wrapper">
+          <video autoplay muted loop playsinline>
+            <source src="img/vd.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Video Section End -->
+
+<style>
+  .video-section {
+    padding: 80px 0;
+    background: white; /* background color */
+    text-align: center; /* center align the video */
+  }
+
+  .video-wrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    max-width: 200%; /* ensure full width */
+    margin: 0 auto; /* center the video */
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .video-section {
+      padding: 50px 0;
+    }
+  }
+</style>
+
+
+  
  <section class="section menu" id="menu">
     <div class="container">
       <div class="section-title">
@@ -2152,5 +2204,6 @@ setInterval(() => {
   </script>
 </body>
 </html>
+
 
 
